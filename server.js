@@ -1,7 +1,6 @@
 const path = require('path');
 const http = require('http');
 const express = require('express');
-const compression = require('compression');
 const socketio = require('socket.io');
 const formatMessage = require('./utils/messages');
 const {
@@ -19,7 +18,7 @@ const io = socketio(server);
 app.use(express.static(path.join(__dirname, 'public')));
 
 const botName = 'ChatCord Bot';
-app.use("compression");
+
 // Run when client connects
 io.on('connection', socket => {
   socket.on('joinRoom', ({ username, room }) => {
